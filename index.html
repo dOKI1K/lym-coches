@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO -->
+    <title>L&M Coches Guía — Acompañamiento vial para cargas especiales</title>
+    <meta name="description"
+        content="Servicio profesional de vehículos guía para el traslado seguro de cargas especiales y sobredimensionadas. Contratación por viaje, cobertura completa desde el origen hasta el destino." />
+    <meta name="keywords"
+        content="coches guía, cargas especiales, acompañamiento vial, transporte, logística, cargas sobredimensionadas, convoy, seguridad vial" />
+    <meta name="author" content="L&M Coches Guía" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#EA580C" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="L&M Coches Guía — Acompañamiento vial para cargas especiales" />
+    <meta property="og:description"
+        content="Vehículos guía para el traslado seguro de cargas de gran porte. Contratá el servicio por viaje." />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1200&q=80" />
+    <meta property="og:locale" content="es_AR" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="L&M Coches Guía" />
+    <meta name="twitter:description" content="Acompañamiento vial profesional para cargas especiales." />
+
+    <link rel="canonical" href="https://lymcochesguia.com/" />
+
+    <!-- Google Fonts: Oswald (headings) + Inter (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
+
+    <!-- TailwindCSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            white: '#FFFFFF',
+                            black: '#111111',
+                            orange: '#EA580C',
+                        },
+                    },
+                    fontFamily: {
+                        heading: ['Oswald', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+        };
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #111111;
+            background-color: #FFFFFF;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .font-heading {
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 0.5px;
+        }
+
+        /* Scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+        }
+
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hover underline animation for nav links */
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 0;
+            height: 2px;
+            background-color: #EA580C;
+            transition: width 0.3s ease-in-out;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Card hover lift */
+        .card-hover {
+            transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px -20px rgba(234, 88, 12, 0.35);
+            border-color: #EA580C;
+        }
+
+        /* Image hover zoom */
+        .img-zoom {
+            overflow: hidden;
+        }
+
+        .img-zoom img {
+            transition: transform 0.7s ease;
+        }
+
+        .img-zoom:hover img {
+            transform: scale(1.08);
+        }
+
+        /* Hero overlay */
+        .hero-overlay {
+            background: linear-gradient(90deg, rgba(17, 17, 17, 0.85) 0%, rgba(17, 17, 17, 0.6) 60%, rgba(17, 17, 17, 0.3) 100%);
+        }
+
+        /* Button pulse on CTA */
+        .btn-primary {
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px -8px rgba(234, 88, 12, 0.55);
+        }
+
+        /* Section divider accent */
+        .accent-bar {
+            width: 60px;
+            height: 4px;
+            background-color: #EA580C;
+        }
+
+        /* Mobile menu */
+        #mobile-menu {
+            transition: max-height 0.35s ease, opacity 0.3s ease;
+            overflow: hidden;
+            max-height: 0;
+            opacity: 0;
+        }
+
+        #mobile-menu.open {
+            max-height: 400px;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <!-- ========= NAVBAR ========= -->
+    <header id="navbar"
+        class="fixed top-0 left-0 w-full z-50 bg-brand-black/95 backdrop-blur border-b border-white/5 transition-all duration-300">
+        <nav class="max-w-7xl mx-auto px-6 lg:px-10 py-4 flex items-center justify-between">
+            <a href="#inicio" class="flex items-center gap-2 group">
+                <span class="w-8 h-8 bg-brand-orange flex items-center justify-center rounded-sm">
+                    <span class="text-white font-heading font-bold">L</span>
+                </span>
+                <span class="text-white font-heading text-xl tracking-wider">L&amp;M <span
+                        class="text-brand-orange">COCHES</span></span>
+            </a>
+
+            <ul class="hidden lg:flex items-center gap-10 text-sm font-medium text-white uppercase tracking-widest">
+                <li><a class="nav-link hover:text-brand-orange transition" href="#inicio">Inicio</a></li>
+                <li><a class="nav-link hover:text-brand-orange transition" href="#servicios">Servicios</a></li>
+                <li><a class="nav-link hover:text-brand-orange transition" href="#vehiculos">Vehículos</a></li>
+                <li><a class="nav-link hover:text-brand-orange transition" href="#nosotros">Nosotros</a></li>
+                <li><a class="nav-link hover:text-brand-orange transition" href="#contacto">Contacto</a></li>
+            </ul>
+
+            <a href="https://wa.me/5492915083318" target="_blank" rel="noopener"
+                class="hidden lg:inline-flex items-center gap-2 bg-brand-orange text-white px-5 py-2.5 font-heading uppercase text-sm tracking-widest btn-primary">
+                WhatsApp
+            </a>
+
+            <!-- Mobile toggle -->
+            <button id="menu-toggle" aria-label="Abrir menú" class="lg:hidden text-white p-2">
+                <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16" />
+                </svg>
+                <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 hidden" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </nav>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="lg:hidden bg-brand-black border-t border-white/5">
+            <ul class="flex flex-col px-6 py-4 gap-4 text-white uppercase tracking-widest text-sm font-medium">
+                <li><a class="block py-2 hover:text-brand-orange" href="#inicio">Inicio</a></li>
+                <li><a class="block py-2 hover:text-brand-orange" href="#servicios">Servicios</a></li>
+                <li><a class="block py-2 hover:text-brand-orange" href="#vehiculos">Vehículos</a></li>
+                <li><a class="block py-2 hover:text-brand-orange" href="#nosotros">Nosotros</a></li>
+                <li><a class="block py-2 hover:text-brand-orange" href="#contacto">Contacto</a></li>
+                <li>
+                    <a href="https://wa.me/5492915083318" target="_blank" rel="noopener"
+                        class="mt-2 inline-flex items-center justify-center w-full bg-brand-orange text-white px-5 py-3 font-heading uppercase text-sm tracking-widest">
+                        WhatsApp
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- ========= HERO / INICIO ========= -->
+    <section id="inicio" class="relative min-h-screen flex items-center overflow-hidden">
+        <!-- REPLACE: Hero banner image (Unsplash placeholder) -->
+        <!-- <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1920&q=80"
+             alt="Camión de carga en ruta al atardecer" -->
+        <img src="http://doki1k.github.io/lym-coches/img/banner.jpeg" alt="Camión de carga en ruta vigilado"
+            class="absolute inset-0 w-full h-full object-cover" />
+        <div class="absolute inset-0 hero-overlay"></div>
+
+        <div class="relative max-w-7xl mx-auto px-6 lg:px-10 py-32 text-white w-full">
+            <div class="max-w-3xl reveal">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="accent-bar"></div>
+                    <span class="font-heading uppercase tracking-[0.3em] text-sm text-brand-orange">Coches Guía
+                        Profesionales</span>
+                </div>
+
+                <h1 class="font-heading text-5xl md:text-6xl lg:text-7xl font-bold uppercase leading-[1.05] mb-8">
+                    Seguridad y acompañamiento para <span class="text-brand-orange">cargas especiales</span> en ruta
+                </h1>
+
+                <p class="text-lg md:text-xl text-white/85 leading-relaxed mb-10 max-w-2xl font-light">
+                    Brindamos vehículos guía para el traslado seguro de cargas de gran porte, coordinando cada viaje con
+                    profesionalismo, comunicación constante y cumplimiento de las normativas vigentes. Contratá el
+                    servicio por viaje y asegurá un traslado eficiente desde el origen hasta el destino.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#contacto"
+                        class="btn-primary inline-flex items-center justify-center bg-brand-orange text-white px-8 py-4 font-heading uppercase tracking-widest text-sm">
+                        Solicitar un viaje
+                    </a>
+                    <a href="#servicios"
+                        class="btn-primary inline-flex items-center justify-center border-2 border-white text-white px-8 py-4 font-heading uppercase tracking-widest text-sm hover:bg-white hover:text-brand-black">
+                        Conocer nuestros servicios
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/70 animate-bounce hidden md:block">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+        </div>
+    </section>
+
+    <!-- ========= SERVICIOS ========= -->
+    <section id="servicios" class="py-24 lg:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-10">
+            <div class="max-w-3xl mb-16 reveal">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="accent-bar"></div>
+                    <span class="font-heading uppercase tracking-[0.3em] text-sm text-brand-orange">Servicios</span>
+                </div>
+                <h2
+                    class="font-heading text-4xl md:text-5xl lg:text-6xl uppercase font-bold text-brand-black leading-tight mb-8">
+                    Acompañamiento vial para <span class="text-brand-orange">cargas especiales</span>
+                </h2>
+                <div class="space-y-4 text-lg text-brand-black/75 leading-relaxed">
+                    <p>Cada traslado presenta desafíos distintos. Por eso ofrecemos un servicio de vehículos guía
+                        contratado por viaje, adaptándonos a las características de cada recorrido y al tipo de carga
+                        transportada.</p>
+                    <p>Trabajamos acompañando convoyes de cargas sobredimensionadas y de gran longitud, colaborando en
+                        la seguridad del tránsito y facilitando el desplazamiento durante todo el trayecto.</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+                <!-- Card 1 -->
+                <div class="reveal card-hover bg-brand-black text-white p-10 border-2 border-brand-black">
+                    <div class="w-14 h-14 bg-brand-orange flex items-center justify-center mb-8">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+                        </svg>
+                    </div>
+                    <span class="font-heading text-brand-orange text-sm tracking-widest uppercase">01</span>
+                    <h3 class="font-heading text-2xl uppercase font-bold mt-2 mb-4">Inicio del convoy</h3>
+                    <p class="text-white/75 leading-relaxed">Vehículos guía que anticipan el paso de la carga, alertando
+                        al tránsito y contribuyendo a un desplazamiento ordenado desde el comienzo del recorrido.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="reveal card-hover bg-white p-10 border-2 border-brand-black/10"
+                    style="transition-delay:.1s">
+                    <div class="w-14 h-14 bg-brand-orange flex items-center justify-center mb-8">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
+                        </svg>
+                    </div>
+                    <span class="font-heading text-brand-orange text-sm tracking-widest uppercase">02</span>
+                    <h3 class="font-heading text-2xl uppercase font-bold mt-2 mb-4 text-brand-black">Cierre del convoy
+                    </h3>
+                    <p class="text-brand-black/75 leading-relaxed">Acompañamiento en la parte posterior de la caravana
+                        para brindar mayor seguridad y señalización durante todo el trayecto.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="reveal card-hover bg-white p-10 border-2 border-brand-black/10"
+                    style="transition-delay:.2s">
+                    <div class="w-14 h-14 bg-brand-orange flex items-center justify-center mb-8">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-1.447-.894L15 4m0 13V4m0 0L9 7" />
+                        </svg>
+                    </div>
+                    <span class="font-heading text-brand-orange text-sm tracking-widest uppercase">03</span>
+                    <h3 class="font-heading text-2xl uppercase font-bold mt-2 mb-4 text-brand-black">Cobertura por viaje
+                    </h3>
+                    <p class="text-brand-black/75 leading-relaxed">Cada servicio se planifica de acuerdo con el
+                        recorrido, la distancia y las necesidades específicas del traslado, ofreciendo soluciones
+                        flexibles para cada contratación.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========= VEHÍCULOS ========= -->
+    <section id="vehiculos" class="py-24 lg:py-32 bg-brand-black text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-10">
+            <div class="max-w-3xl mb-16 reveal">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="accent-bar"></div>
+                    <span class="font-heading uppercase tracking-[0.3em] text-sm text-brand-orange">Vehículos</span>
+                </div>
+                <h2 class="font-heading text-4xl md:text-5xl lg:text-6xl uppercase font-bold leading-tight mb-8">
+                    Nuestra <span class="text-brand-orange">flota</span>
+                </h2>
+                <div class="space-y-4 text-lg text-white/75 leading-relaxed">
+                    <p>Contamos con vehículos preparados para brindar acompañamiento vial en traslados de cargas
+                        especiales. Todos se encuentran equipados para ofrecer una correcta señalización, comunicación
+                        permanente y presencia en ruta durante todo el recorrido.</p>
+                    <p>Nuestro compromiso es garantizar un servicio confiable, puntual y adaptado a cada operación
+                        logística.</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+                <!-- REPLACE: Vehicle 1 image -->
+                <div class="reveal group">
+                    <div class="img-zoom aspect-[4/3] bg-white/5">
+                        <!-- <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=800&q=80" -->
+                        <img src="http://doki1k.github.io/lym-coches/img/auto1.jpeg" alt="Vehículo guía Nº1"
+                            class="w-full h-full object-cover" />
+                    </div>
+                    <div class="p-6 border-b-2 border-brand-orange bg-white/5">
+                        <h3 class="font-heading text-2xl uppercase font-bold">Unidad 01</h3>
+                        <p class="text-white/70 mt-1 text-sm">Vehículo guía equipado para ruta</p>
+                    </div>
+                </div>
+
+                <!-- REPLACE: Vehicle 2 image -->
+                <div class="reveal group" style="transition-delay:.1s">
+                    <div class="img-zoom aspect-[4/3] bg-white/5">
+                        <!-- <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80" -->
+                        <img src="http://doki1k.github.io/lym-coches/img/auto2.jpeg" alt="Vehículo guía Nº2"
+                            class="w-full h-full object-cover" />
+                    </div>
+                    <div class="p-6 border-b-2 border-brand-orange bg-white/5">
+                        <h3 class="font-heading text-2xl uppercase font-bold">Unidad 02</h3>
+                        <p class="text-white/70 mt-1 text-sm">Señalización y comunicación completa</p>
+                    </div>
+                </div>
+
+                <!-- REPLACE: Vehicle 3 image -->
+                <div class="reveal group" style="transition-delay:.2s">
+                    <div class="img-zoom aspect-[4/3] bg-white/5">
+                        <!-- <img src="https://images.unsplash.com/photo-1541348263662-e068662d82af?auto=format&fit=crop&w=800&q=80" -->
+                        <img src="http://doki1k.github.io/lym-coches/img/auto3.jpeg" alt="Vehículo guía Nº3"
+                            class="w-full h-full object-cover" />
+                    </div>
+                    <div class="p-6 border-b-2 border-brand-orange bg-white/5">
+                        <h3 class="font-heading text-2xl uppercase font-bold">Unidad 03</h3>
+                        <p class="text-white/70 mt-1 text-sm">Presencia en ruta durante todo el recorrido</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========= NOSOTROS ========= -->
+    <section id="nosotros" class="py-24 lg:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <!-- REPLACE: Owner photo -->
+            <div class="reveal order-2 lg:order-1">
+                <div class="relative">
+                    <div class="absolute -top-4 -left-4 w-full h-full bg-brand-orange -z-0 hidden md:block"></div>
+                    <div class="img-zoom relative z-10 aspect-[4/5] overflow-hidden">
+                        <!-- <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80" -->
+                        <img src="http://doki1k.github.io/lym-coches/img/us.jpeg" alt="Fundador de L&M Coches Guía"
+                            class="w-full h-full object-cover" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="reveal order-1 lg:order-2">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="accent-bar"></div>
+                    <span class="font-heading uppercase tracking-[0.3em] text-sm text-brand-orange">Nosotros</span>
+                </div>
+                <h2
+                    class="font-heading text-4xl md:text-5xl lg:text-6xl uppercase font-bold text-brand-black leading-tight mb-8">
+                    Experiencia, compromiso y <span class="text-brand-orange">responsabilidad</span>
+                </h2>
+                <div class="space-y-5 text-lg text-brand-black/75 leading-relaxed">
+                    <p>Somos una empresa dedicada al acompañamiento de cargas especiales, comprometida con la seguridad
+                        de cada traslado y la tranquilidad de nuestros clientes.</p>
+                    <p>Entendemos la importancia que tiene cada operación logística, por eso trabajamos con
+                        responsabilidad, puntualidad y una coordinación constante durante todo el recorrido. Nuestro
+                        objetivo es brindar un servicio confiable que permita que cada viaje se desarrolle de manera
+                        segura y eficiente.</p>
+                </div>
+
+                <div class="grid grid-cols-3 gap-6 mt-12 border-t border-brand-black/10 pt-8">
+                    <div>
+                        <div class="font-heading text-4xl text-brand-orange font-bold">+50</div>
+                        <div class="text-xs uppercase tracking-widest text-brand-black/60 mt-1">Viajes en ruta</div>
+                    </div>
+                    <div>
+                        <div class="font-heading text-4xl text-brand-orange font-bold">24/7</div>
+                        <div class="text-xs uppercase tracking-widest text-brand-black/60 mt-1">Coordinación</div>
+                    </div>
+                    <div>
+                        <div class="font-heading text-4xl text-brand-orange font-bold">100%</div>
+                        <div class="text-xs uppercase tracking-widest text-brand-black/60 mt-1">Compromiso</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========= CONTACTO / CTA ========= -->
+    <section id="contacto" class="relative py-24 lg:py-32 overflow-hidden">
+        <!-- REPLACE: Contact background image -->
+        <!-- <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1920&q=80" -->
+        <img src="http://doki1k.github.io/lym-coches/img/footer.jpeg" alt="Ruta con camiones al atardecer"
+            class="absolute inset-0 w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-brand-black/85"></div>
+
+        <div class="relative max-w-5xl mx-auto px-6 lg:px-10 text-center text-white">
+            <div class="reveal">
+                <div class="flex items-center justify-center gap-3 mb-6">
+                    <div class="accent-bar"></div>
+                    <span class="font-heading uppercase tracking-[0.3em] text-sm text-brand-orange">Contacto</span>
+                    <div class="accent-bar"></div>
+                </div>
+
+                <h2 class="font-heading text-4xl md:text-5xl lg:text-6xl uppercase font-bold leading-tight mb-8">
+                    ¿Tenés un <span class="text-brand-orange">traslado programado</span>?
+                </h2>
+                <p class="text-lg md:text-xl text-white/85 leading-relaxed max-w-3xl mx-auto mb-12">
+                    Contratá el servicio de vehículo guía para tu próximo viaje. Contanos el recorrido, las
+                    características de la carga y coordinemos un acompañamiento seguro de principio a fin.
+                </p>
+
+                <div class="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto mb-12">
+                    <div class="border border-white/15 p-6 hover:border-brand-orange transition">
+                        <div class="flex items-center justify-center gap-3 mb-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-brand-orange" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            <span class="font-heading uppercase tracking-widest text-sm text-white/70">Dirección</span>
+                        </div>
+                        <div class="font-heading text-xl">Río Negro 445</div>
+                    </div>
+
+                    <div class="border border-white/15 p-6 hover:border-brand-orange transition">
+                        <div class="flex items-center justify-center gap-3 mb-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-brand-orange" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                            </svg>
+                            <span class="font-heading uppercase tracking-widest text-sm text-white/70">WhatsApp</span>
+                        </div>
+                        <div class="font-heading text-xl">291 508-3318</div>
+                    </div>
+                </div>
+
+                <a href="https://wa.me/5492915083318" target="_blank" rel="noopener"
+                    class="btn-primary inline-flex items-center gap-3 bg-brand-orange text-white px-10 py-5 font-heading uppercase tracking-widest text-base">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.174.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </svg>
+                    Hablar por WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========= FOOTER ========= -->
+    <footer class="bg-brand-black text-white/70 py-12 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-2">
+                <span class="w-8 h-8 bg-brand-orange flex items-center justify-center rounded-sm">
+                    <span class="text-white font-heading font-bold">L</span>
+                </span>
+                <span class="text-white font-heading text-lg tracking-wider">L&amp;M <span
+                        class="text-brand-orange">COCHES</span></span>
+            </div>
+            <p class="text-sm text-center md:text-right">
+                &copy; <span id="year"></span> L&amp;M Coches Guía. Todos los derechos reservados. by <a
+                    href="https://wa.me/5492944327231" class="text-brand-orange" target="_blank">dOKI</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/5492915083318" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp"
+        class="fixed bottom-6 right-6 z-40 w-14 h-14 bg-brand-orange text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.174.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </a>
+
+    <script>
+        // Mobile menu toggle
+        const toggle = document.getElementById('menu-toggle');
+        const menu = document.getElementById('mobile-menu');
+        const iconOpen = document.getElementById('icon-open');
+        const iconClose = document.getElementById('icon-close');
+
+        toggle.addEventListener('click', () => {
+            menu.classList.toggle('open');
+            iconOpen.classList.toggle('hidden');
+            iconClose.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.remove('open');
+                iconOpen.classList.remove('hidden');
+                iconClose.classList.add('hidden');
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-2xl');
+            } else {
+                navbar.classList.remove('shadow-2xl');
+            }
+        });
+
+        // Scroll reveal via IntersectionObserver
+        const revealEls = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+        revealEls.forEach(el => observer.observe(el));
+
+        // Dynamic year
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
